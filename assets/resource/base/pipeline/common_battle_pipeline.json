@@ -1,0 +1,101 @@
+{
+  "定位作战入口": {
+    "rate_limit": 1500,
+    "timeout": 40000,
+    "next": "根据设置改变",
+    "interrupt": [
+      "文字跳过",
+      "返回"
+    ]
+  },
+  "战斗开始": {
+    "recognition": "OCR",
+    "expected": ["战斗","开始","挑战"],
+    "roi": [630,520,430,170],
+    "action": "Click",
+    "next": "是否需要体力"
+  },
+  "是否需要体力": {
+    "next": "根据设置改变"
+  },
+  "体力选择": {
+    "recognition": "FeatureMatch",
+    "template": "双右箭头.png",
+    "roi": [600,380,300,70],
+    "action": "Click",
+    "next": "消耗体力确认"
+  },
+  "消耗体力确认": {
+    "recognition": "OCR",
+    "expected": "OK",
+    "action": "Click",
+    "next": "队伍切换",
+    "post_delay": 1000
+  },
+  "队伍切换": {
+    "action": "Click",
+    "target": [963,51,3,3],
+    "next": "队伍选择"
+  },
+  "队伍选择": {
+    "recognition": "OCR",
+    "expected": "上次通关队伍",
+    "roi": [1000, 600, 330, 120],
+    "action": "Click",
+    "next": "确认队伍选择",
+    "post_delay": 1000
+  },
+  "确认队伍选择": {
+    "recognition": "OCR",
+    "expected": "OK",
+    "action": "Click",
+    "next": "出击",
+    "post_delay": 2000
+  },
+  "出击": {
+    "recognition": "OCR",
+    "expected": "出击",
+    "action": "Click",
+    "next": "是否自动战斗"
+  },
+  "是否自动战斗": {
+    "next": "确认打开自动战斗",
+    "interrupt": "打开自动战斗"
+  },
+  "确认关闭自动战斗": {
+    "recognition": "OCR",
+    "expected": "OFF",
+    "roi": [190,20,370,40],
+    "next": "1-0"
+  },
+  "关闭自动战斗": {
+    "recognition": "OCR",
+    "expected": "ON",
+    "roi": [190,20,370,40],
+    "action": "Click"
+  },
+  "确认打开自动战斗": {
+    "recognition": "OCR",
+    "expected": "ON",
+    "roi": [190,20,370,40],
+    "post_delay": 30000,
+    "next": "战斗结束后操作"
+  },
+  "打开自动战斗": {
+    "recognition": "OCR",
+    "expected": "OFF",
+    "roi": [190,20,370,40],
+    "action": "Click",
+    "next": "选择自动级别"
+  },
+  "选择自动级别": {
+    "recognition": "OCR",
+    "expected": "FULL",
+    "roi": [190,20,370,40],
+    "action": "Click"
+  },
+  "战斗结束后操作": {
+    "next": "省电模式",
+    "interrupt": "拾取战斗奖励"
+  }
+}

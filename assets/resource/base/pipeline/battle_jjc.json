@@ -1,0 +1,47 @@
+{
+  "定位竞技场入口": {
+    "recognition": "OCR",
+    "expected": "主线剧情",
+    "roi": [540,570,100,30],
+    "action": "Click",
+    "next": "打开竞技场",
+    "post_delay": 1000
+  },
+  "打开竞技场": {
+    "recognition": "TemplateMatch",
+    "template": "竞技场.png",
+    "action": "Click",
+    "roi": [185, 427, 85, 75],
+    "next": "准备查找高级2",
+    "interrupt": "跳过七海对话"
+  },
+  "准备查找高级2": {
+    "recognition": "OCR",
+    "expected": "请选择训练项目",
+    "next": "高级2"
+  },
+  "高级2": {
+    "action": "Swipe",
+    "begin": [1245,125,1,1],
+    "end": [1245,460,1,1],
+    "duration": 3000,
+    "next": "斩突打"
+  },
+  "斩突打": {
+    "recognition": "TemplateMatch",
+    "template": "进入.png",
+    "roi": [1120,540,120,120],
+    "action": "Click",
+    "next": "战斗开始"
+  },
+  "省电模式": {
+    "recognition": "OCR",
+    "expected": "省电模式",
+    "action": "Click",
+    "next": "省电刷图中"
+  },
+  "省电刷图中": {
+    "recognition": "OCR",
+    "expected": "省电刷图中"
+  }
+}

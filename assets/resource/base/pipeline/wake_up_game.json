@@ -1,0 +1,25 @@
+{
+    "进入游戏任务入口": {
+        "rate_limit": 3000,
+        "timeout": 90000,
+        "next": "定位主页",
+        "interrupt": [
+            "文字跳过",
+            "返回"
+        ]
+    },
+    "定位主页": {
+        "recognition": "OCR",
+        "expected": "主页"
+    },
+    "文字跳过": {
+        "recognition": "OCR",
+        "expected": ["同意","OK","炽焰","SKIP","点击画面继续","结束自动刷图","战斗奖励","欢迎回来","帮忙","七海","放弃"],
+        "action": "Click"
+    },
+    "返回": {
+        "recognition": "TemplateMatch",
+        "template": "返回.png",
+        "action": "Click"
+    }
+}

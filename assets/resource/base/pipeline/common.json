@@ -1,0 +1,62 @@
+{
+  "向上找": {
+    "action": "Swipe",
+    "begin": [1000,140,10,10],
+    "end": [1000,515,10,10],
+    "duration": 3000
+  },
+  "向下找": {
+    "action": "Swipe",
+    "begin": [1000,515,10,10],
+    "end": [1000,140,10,10],
+    "duration": 3000
+  },
+  "选择最高难度": {
+    "recognition": "TemplateMatch",
+    "template": "进入.png",
+    "roi": [1130,550,100,100],
+    "action": "Click",
+    "next": "战斗开始",
+    "post_delay": 1000
+  },
+  "放弃连战": {
+    "recognition": "OCR",
+    "expected": "放弃",
+    "action": "Click"
+  },
+  "连战": {
+    "recognition": "OCR",
+    "expected": "再次挑战",
+    "action": "Click",
+    "next": "战斗开始"
+  },
+  "拾取战斗奖励": {
+    "recognition": "OCR",
+    "expected": "战斗奖励",
+    "action": "Click"
+  },
+  "一直点OD": {
+    "action": "Click",
+    "target": [1170,45,30,30]
+  },
+  "跳过七海对话": {
+    "recognition": "OCR",
+    "expected": "七海",
+    "action": "Click"
+  },
+  "高级2斩-废弃": {
+    "recognition": "OCR",
+    "expected": "^高级等级2（斩）$",
+    "roi": [520,135,250,510],
+    "action": "Click"
+  },
+  "高级2斩": {
+    "action": "Swipe",
+    "begin": [1245,125,1,1],
+    "end": [1245,460,1,1],
+    "duration": 3000
+  },
+  "根据设置改变": {
+
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "定位活动棱镜战入口": {
+    "recognition": "OCR",
+    "expected": "活动",
+    "roi": [660,570,60,30],
+    "action": "Click",
+    "next": "打开当期活动",
+    "post_delay": 1000
+  },
+  "打开当期活动": {
+    "action": "Click",
+    "target": [250,300,10,10],
+    "next": "打开活动棱镜战",
+    "post_delay": 1000
+  },
+  "打开活动棱镜战": {
+    "recognition": "OCR",
+    "expected": "活动棱镜战",
+    "action": "Click",
+    "next": "选择最高难度",
+    "post_delay": 1000
+  }
+}

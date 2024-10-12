@@ -3,68 +3,166 @@
         {
             "name": "安卓端",
             "type": "Adb"
-        },
-        {
-            "name": "桌面端",
-            "type": "Win32",
-            "win32": {
-                "class_regex": ".*",
-                "window_regex": "Visual Studio"
-            }
         }
     ],
     "resource": [
         {
-            "name": "官服",
+            "name": "B 服",
             "path": [
-                "{PROJECT_DIR}/resource"
+                "{PROJECT_DIR}/resource/base"
             ]
         },
         {
-            "name": "B 服",
+            "name": "国际服",
             "path": [
-                "{PROJECT_DIR}/resource",
-                "{PROJECT_DIR}/resource_bilibili"
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/global"
             ]
         }
     ],
     "task": [
         {
-            "name": "普通任务",
-            "entry": "MyTask1"
+            "name": "启动游戏",
+            "entry": "打开炽焰天穹"
         },
         {
-            "name": "选项任务",
-            "entry": "MyTask2",
+            "name": "开始唤醒",
+            "entry": "进入游戏任务入口"
+        },
+        {
+            "name": "作战",
+            "entry": "定位作战入口",
             "option": [
-                "任务选项1"
+                "作战关卡选择",
+                "自动战斗"
             ]
         },
         {
-            "name": "参数任务",
-            "entry": "MyTask3",
+            "name": "挂机结束（暂时只挂竞技场高级2,默认auto full）",
+            "entry": "定位作战入口",
             "option": [
-                "任务选项1"
+                "斩突打？"
             ],
-            "pipeline_override": {}
+            "pipeline_override": {
+                "定位作战入口": {
+                    "next": "定位竞技场入口"
+                },
+                "是否需要体力": {
+                    "next": "队伍切换"
+                },
+                "是否自动战斗": {
+                    "next": "确认打开自动战斗",
+                    "interrupt": "打开自动战斗"
+                },
+                "选择自动级别": {
+                    "expected": "FULL"
+                },
+                "战斗结束后操作": {
+                    "next": "省电模式",
+                    "interrupt": "拾取战斗奖励"
+                }
+            }
         }
     ],
     "option": {
-        "任务选项1": {
+        "作战关卡选择": {
             "cases": [
                 {
-                    "name": "文本1",
+                    "name": "活动棱镜战(目前只支持这个)",
                     "pipeline_override": {
-                        "OcrTask": {
-                            "text": "文本1"
+                        "定位作战入口": {
+                            "next": "定位活动棱镜战入口"
+                        },
+                        "是否需要体力": {
+                            "next": "体力选择"
+                        },
+                        "战斗结束后操作": {
+                            "next": "放弃连战"
                         }
                     }
                 },
                 {
-                    "name": "文本2",
+                    "name": "普通棱镜战",
                     "pipeline_override": {
-                        "OcrTask": {
-                            "text": "文本2"
+                        "定位作战入口": {
+                            "next": "普通棱镜战任务入口"
+                        }
+                    }
+                },
+                {
+                    "name": "宝石棱镜战",
+                    "pipeline_override": {
+                        "定位作战入口": {
+                            "next": "宝石棱镜战任务入口"
+                        }
+                    }
+                },
+                {
+                    "name": "光球棱镜战",
+                    "pipeline_override": {
+                        "定位作战入口": {
+                            "next": "定位光球棱镜战入口"
+                        }
+                    }
+                },
+                {
+                    "name": "废域",
+                    "pipeline_override": {
+                        "定位作战入口": {
+                            "next": "废域任务入口"
+                        }
+                    }
+                }
+            ]
+        },
+        "自动战斗": {
+            "cases": [
+                {
+                    "name": "打开(默认FULL)",
+                    "pipeline_override": {
+                        "是否自动战斗": {
+                            "next": "确认打开自动战斗",
+                            "interrupt": "打开自动战斗"
+                        },
+                        "选择自动级别": {
+                            "expected": "FULL"
+                        }
+                    }
+                },
+                {
+                    "name": "关闭",
+                    "pipeline_override": {
+                        "是否自动战斗": {
+                            "next": "确认关闭自动战斗",
+                            "interrupt": "关闭自动战斗"
+                        }
+                    }
+                }
+            ]
+        },
+        "斩突打？": {
+            "cases": [
+                {
+                    "name": "斩",
+                    "pipeline_override": {
+                        "斩突打": {
+                            "roi_offset": [0,-260,0,0]
+                        }
+                    }
+                },
+                {
+                    "name": "突",
+                    "pipeline_override": {
+                        "斩突打": {
+                            "roi_offset": [0,-130,0,0]
+                        }
+                    }
+                },
+                {
+                    "name": "打",
+                    "pipeline_override": {
+                        "斩突打": {
+                            "roi_offset": [0,0,0,0]
                         }
                     }
                 }

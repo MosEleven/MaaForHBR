@@ -1,0 +1,6 @@
+{
+  "打开炽焰天穹": {
+    "action": "StartApp",
+    "package": "com.bilibili.heaven"
+  }
+}
