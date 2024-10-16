@@ -1,0 +1,275 @@
+{
+  "定位任务入口": {
+    "recognition": "OCR",
+    "expected": "任务",
+    "roi": [351,642, 85, 47],
+    "next": [
+      "检测是否有任务未领取",
+      "检测是否有礼物未领取"
+    ],
+    "timeout": 3000
+  },
+  "检测是否有任务未领取": {
+    "recognition": "TemplateMatch",
+    "template": "红点.png",
+    "roi": [400, 590, 50, 50],
+    "next": "进入任务页面"
+  },
+  "检测是否有任务未领取-颜色匹配失败-原因未知": {
+    "recognition": "ColorMatch",
+    "roi": [421, 609, 5, 5],
+    "method": 4,
+    "lower": [246, 41, 166],
+    "upper": [246, 41, 166],
+    "count": 1,
+    "connected": false,
+    "next": "进入任务页面"
+  },
+  "进入任务页面": {
+    "recognition": "OCR",
+    "expected": "任务",
+    "roi": [351, 642, 85, 47],
+    "action": "Click",
+    "next": "日常任务",
+    "post_delay": 1000
+  },
+  "日常任务": {
+    "recognition": "OCR",
+    "expected": "日常任务",
+    "roi": [60, 120, 1140, 50],
+    "action": "Click",
+    "post_delay": 500,
+    "next": "领取-日常任务"
+  },
+  "领取-日常任务": {
+    "recognition": "OCR",
+    "expected": "一键领取",
+    "roi": [1000, 600, 210, 50],
+    "action": "Click",
+    "post_delay": 500,
+    "timeout": 500,
+    "on_error": "每周任务",
+    "next": "领取-日常任务-OK"
+  },
+  "领取-日常任务-OK": {
+    "recognition": "OCR",
+    "expected": "OK",
+    "roi": [542, 490, 225, 66],
+    "action": "Click",
+    "post_delay": 500,
+    "next": "每周任务"
+  },
+  "每周任务": {
+    "recognition": "OCR",
+    "expected": "每周任务",
+    "roi": [60, 120, 1140, 50],
+    "action": "Click",
+    "post_delay": 500,
+    "next": "领取-每周任务"
+  },
+  "领取-每周任务": {
+    "recognition": "OCR",
+    "expected": "一键领取",
+    "roi": [1000, 600, 210, 50],
+    "action": "Click",
+    "post_delay": 500,
+    "timeout": 500,
+    "on_error": "累计",
+    "next": "领取-每周任务-OK"
+  },
+  "领取-每周任务-OK": {
+    "recognition": "OCR",
+    "expected": "OK",
+    "roi": [542, 490, 225, 66],
+    "action": "Click",
+    "post_delay": 500,
+    "next": "累计"
+  },
+  "累计": {
+    "recognition": "OCR",
+    "expected": "累计",
+    "roi": [60, 120, 1140, 50],
+    "action": "Click",
+    "post_delay": 500,
+    "next": "领取-累计"
+  },
+  "领取-累计": {
+    "recognition": "OCR",
+    "expected": "一键领取",
+    "roi": [1000, 600, 210, 50],
+    "action": "Click",
+    "post_delay": 500,
+    "timeout": 500,
+    "on_error": "挑战",
+    "next": "领取-累计-OK"
+  },
+  "领取-累计-OK": {
+    "recognition": "OCR",
+    "expected": "OK",
+    "roi": [542, 490, 225, 66],
+    "action": "Click",
+    "post_delay": 500,
+    "next": "挑战"
+  },
+  "挑战": {
+    "recognition": "OCR",
+    "expected": "挑战",
+    "roi": [60, 120, 1140, 50],
+    "action": "Click",
+    "post_delay": 500,
+    "next": "领取-挑战"
+  },
+  "领取-挑战": {
+    "recognition": "OCR",
+    "expected": "一键领取",
+    "roi": [1000, 600, 210, 50],
+    "action": "Click",
+    "post_delay": 500,
+    "timeout": 500,
+    "on_error": "活动",
+    "next": "领取-挑战-OK"
+  },
+  "领取-挑战-OK": {
+    "recognition": "OCR",
+    "expected": "OK",
+    "roi": [542, 490, 225, 66],
+    "action": "Click",
+    "post_delay": 500,
+    "next": "活动"
+  },
+  "活动": {
+    "recognition": "OCR",
+    "expected": "活动",
+    "roi": [60, 120, 1140, 50],
+    "action": "Click",
+    "post_delay": 500,
+    "next": "领取-活动"
+  },
+  "领取-活动": {
+    "recognition": "OCR",
+    "expected": "一键领取",
+    "roi": [1000, 600, 210, 50],
+    "action": "Click",
+    "post_delay": 500,
+    "timeout": 500,
+    "on_error": "限时",
+    "next": "领取-活动-OK"
+  },
+  "领取-活动-OK": {
+    "recognition": "OCR",
+    "expected": "OK",
+    "roi": [542, 490, 225, 66],
+    "action": "Click",
+    "post_delay": 500,
+    "next": "限时"
+  },
+  "限时": {
+    "recognition": "OCR",
+    "expected": "限时",
+    "roi": [60, 120, 1140, 50],
+    "action": "Click",
+    "post_delay": 500,
+    "next": "领取-限时"
+  },
+  "领取-限时": {
+    "recognition": "OCR",
+    "expected": "一键领取",
+    "roi": [1000, 600, 210, 50],
+    "action": "Click",
+    "post_delay": 500,
+    "timeout": 500,
+    "on_error": "每月任务",
+    "next": "领取-限时-OK"
+  },
+  "领取-限时-OK": {
+    "recognition": "OCR",
+    "expected": "OK",
+    "roi": [542, 490, 225, 66],
+    "action": "Click",
+    "post_delay": 500,
+    "next": "每月任务"
+  },
+  "每月任务": {
+    "recognition": "OCR",
+    "expected": "每月任务",
+    "roi": [1050, 25, 150, 50],
+    "action": "Click",
+    "post_delay": 500,
+    "next": "领取-每月任务"
+  },
+  "领取-每月任务": {
+    "recognition": "OCR",
+    "expected": "一键领取",
+    "roi": [1000, 600, 210, 50],
+    "action": "Click",
+    "post_delay": 500,
+    "timeout": 500,
+    "on_error": "领取任务结束",
+    "next": "领取-每月任务-OK"
+  },
+  "领取-每月任务-OK": {
+    "recognition": "OCR",
+    "expected": "OK",
+    "roi": [542, 490, 225, 66],
+    "action": "Click",
+    "post_delay": 500,
+    "next": "领取任务结束"
+  },
+  "领取任务结束": {
+    "timeout": 4000,
+    "next": "检测是否有礼物未领取",
+    "interrupt": "返回"
+  },
+  "检测是否有礼物未领取": {
+    "recognition": "TemplateMatch",
+    "template": "红点.png",
+    "roi": [300, 590, 50, 50],
+    "next": "进入礼物页面"
+  },
+  "检测是否有礼物未领取-颜色识别失败": {
+    "recognition": "ColorMatch",
+    "roi": [320, 610, 5, 5],
+    "method": 4,
+    "lower": [246, 41, 166],
+    "upper": [246, 41, 166],
+    "count": 1,
+    "connected": false,
+    "next": "进入礼物页面"
+  },
+  "进入礼物页面": {
+    "recognition": "OCR",
+    "expected": "礼物",
+    "roi": [260, 650, 60, 30],
+    "action": "Click",
+    "next": "领取-礼物",
+    "post_delay": 1000
+  },
+  "领取-礼物": {
+    "recognition": "OCR",
+    "expected": "一键领取",
+    "roi": [1000, 600, 210, 50],
+    "pre_wait_freezes": 500,
+    "action": "Click",
+    "post_delay": 500,
+    "timeout": 500,
+    "next": "领取-礼物-领取"
+  },
+  "领取-礼物-领取": {
+    "recognition": "OCR",
+    "expected": "领取",
+    "roi": [650, 560, 225, 70],
+    "action": "Click",
+    "post_delay": 500,
+    "next": "领取-礼物-OK"
+  },
+  "领取-礼物-OK": {
+    "recognition": "OCR",
+    "expected": "OK",
+    "action": "Click",
+    "post_delay": 500,
+    "next": "领取礼物结束"
+  },
+  "领取礼物结束": {
+
+  }
+}

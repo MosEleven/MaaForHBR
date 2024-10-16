@@ -1,12 +1,27 @@
 {
-  "宝石棱镜战任务入口": {
-    "next": "定位宝石棱镜战入口",
-    "interrupt": [
-      "文字跳过",
-      "返回"
-    ]
-  },
   "定位宝石棱镜战入口": {
-
+    "recognition": "OCR",
+    "expected": "强化",
+    "roi": [1000,650,100,50],
+    "action": "Click",
+    "next": "打开宝石棱镜战",
+    "post_delay": 1000
+  },
+  "打开宝石棱镜战": {
+    "recognition": "TemplateMatch",
+    "template": "宝石棱镜战.png",
+    "roi": [800,350,100,100],
+    "action": "Click",
+    "next": "选择宝石颜色",
+    "interrupt": "向下找",
+    "post_delay": 1000
+  },
+  "选择宝石颜色": {
+    "recognition": "OCR",
+    "expected": "掩面死神",
+    "target_offset": [640,15,50,10],
+    "action": "Click",
+    "next": "选择等级13",
+    "post_delay": 1000
   }
 }

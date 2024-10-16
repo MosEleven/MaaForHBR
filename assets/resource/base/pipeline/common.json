@@ -1,14 +1,32 @@
 {
+  "定位入口": {
+    "rate_limit": 1500,
+    "timeout": 40000,
+    "next": "根据设置改变",
+    "interrupt": [
+      "文字跳过",
+      "返回"
+    ]
+  },
+  "返回主页": {
+    "rate_limit": 1500,
+    "timeout": 40000,
+    "next": "定位主页",
+    "interrupt": [
+      "文字跳过",
+      "返回"
+    ]
+  },
   "向上找": {
     "action": "Swipe",
-    "begin": [1000,140,10,10],
-    "end": [1000,515,10,10],
+    "begin": [900,250,10,10],
+    "end": [900,515,10,10],
     "duration": 3000
   },
   "向下找": {
     "action": "Swipe",
-    "begin": [1000,515,10,10],
-    "end": [1000,140,10,10],
+    "begin": [900,515,10,10],
+    "end": [900,250,10,10],
     "duration": 3000
   },
   "选择最高难度": {
@@ -17,7 +35,15 @@
     "roi": [1130,550,100,100],
     "action": "Click",
     "next": "战斗开始",
-    "post_delay": 1000
+    "post_wait_freezes": 500
+  },
+  "选择等级13": {
+    "recognition": "OCR",
+    "template": "详情",
+    "roi": [960,510,100,60],
+    "action": "Click",
+    "next": "战斗开始",
+    "post_wait_freezes": 500
   },
   "放弃连战": {
     "recognition": "OCR",

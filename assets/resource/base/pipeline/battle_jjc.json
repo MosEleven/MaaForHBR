@@ -32,6 +32,7 @@
     "template": "进入.png",
     "roi": [1120,540,120,120],
     "action": "Click",
+    "post_wait_freezes": 500,
     "next": "战斗开始"
   },
   "省电模式": {
