@@ -1,0 +1,18 @@
+{
+  "定位三倍活动棱镜战入口": {
+    "recognition": "OCR",
+    "expected": "活动",
+    "roi": [660,570,60,30],
+    "action": "Click",
+    "next": "打开当期三倍活动",
+    "post_wait_freezes": 500
+  },
+  "打开当期三倍活动": {
+    "recognition": "OCR",
+    "expected": "3倍",
+    "roi": [667,188,55,33],
+    "action": "Click",
+    "next": "打开活动棱镜战",
+    "post_wait_freezes": 500
+  }
+}
