@@ -50,6 +50,16 @@ def install_resource():
         install_path,
     )
 
+    shutil.copy2(
+        working_dir / "assets" / "fight_strategy.txt",
+        install_path,
+    )
+
+    shutil.copy2(
+        working_dir / "assets" / "JsonCreator.exe",
+        install_path,
+    )
+
     with open(install_path / "interface.json", "r", encoding="utf-8") as f:
         interface = json.load(f)
 

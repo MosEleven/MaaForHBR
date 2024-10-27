@@ -36,6 +36,7 @@ build-*
 *.exe
 *.out
 *.app
+!JsonCreator.exe
 
 Debug
 Release
